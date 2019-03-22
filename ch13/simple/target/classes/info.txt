@@ -1,0 +1,1 @@
+To show from cmd context use next command " type applicationContact.xml  "

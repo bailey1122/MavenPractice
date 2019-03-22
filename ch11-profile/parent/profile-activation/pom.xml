@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+ http://maven.apache.org/maven-v4_0_0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>org.sonatype.mavenbook</groupId>
+ <artifactId>simple</artifactId>
+ <packaging>jar</packaging>
+ <version>1.0-SNAPSHOT</version>
+ <name>simple</name>
+ <url>http://maven.apache.org</url>
+ <dependencies>
+ <dependency>
+ <groupId>junit</groupId>
+ <artifactId>junit</artifactId>
+ <version>3.8.1</version>
+ <scope>test</scope>
+ </dependency>
+ </dependencies>
+ <profiles>
+ <profile>
+ <id>jdk16</id>
+ <activation>
+ <jdk>1.6</jdk>
+ </activation>
+ <modules>
+ <module>simple-script</module>
+ </modules>
+ </profile>
+
+<profile>
+ <id>development</id>
+ <activation>
+ <property>
+ <name>environment.type</name>
+ <value>dev</value>
+ </property>
+ </activation>
+<properties>
+ <database.driverClassName>com.mysql.jdbc.Driver</database.driverClassName>
+ <database.url>jdbc:mysql://localhost:3306/app_dev</database.url>
+ <database.user>development_user</database.user>
+ <database.password>development_password</database.password>
+ </properties>
+ </profile>
+
+<profile>
+ <id>production</id>
+ <activation>
+ <property>
+ <name>environment.type</name>
+ <value>prod</value>
+ </property>
+ </activation>
+ <properties>
+ <database.driverClassName>com.mysql.jdbc.Driver</database.driverClassName>
+ <database.url>jdbc:mysql://master01:3306,slave01:3306/app_prod</database.url>
+ <database.user>prod_user</database.user>
+ </properties>
+ </profile>
+
+
+<profile>
+ <id>windows</id>
+ <activation>
+ <os>
+ <family>windows</family>
+ </os>
+ </activation>
+ <properties>
+ <envClassifier>win</envClassifier>
+ </properties>
+ </profile>
+ <profile>
+ <id>linux</id>
+ <activation>
+ <os>
+ <family>unix</family>
+ </os>
+ </activation>
+ <properties>
+ <envClassifier>linux</envClassifier>
+ </properties>
+ </profile>
+
+ </profiles>
+</project>

@@ -1,0 +1,17 @@
+<lifecycles>
+ <lifecycle>
+ <id>zipcycle</id>
+ <phases>
+ <phase>
+ <id>package</id>
+ <executions>
+ <execution>
+ <goals>
+ <goal>zip</goal>
+ </goals>
+ </execution>
+ </executions>
+ </phase>
+ </phases>
+ </lifecycle>
+</lifecycles>

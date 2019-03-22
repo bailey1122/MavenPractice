@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ <bean id="someDao" class="org.myexample">
+ <property name="dataSource" ref="dataSource"/>
+ </bean>
+ <bean id="dataSource" destroy-method="close"
+ class="org.apache.commons.dbcp.BasicDataSource">
+ <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+ <property name="url" value="jdbc:oracle:thin:@proddb01:1521:PROD"/>
+ <property name="username" value="prod_user"/>
+ <property name="password" value="s00p3rs3cr3t"/>
+ </bean>
+</beans>

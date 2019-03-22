@@ -1,0 +1,38 @@
+<plugin>
+  <description></description>
+  <groupId>org.sonatype.mavenbook.plugins</groupId>
+  <artifactId>first-maven-plugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <goalPrefix>blah</goalPrefix>
+  <isolatedRealm>false</isolatedRealm>
+  <inheritedByDefault>true</inheritedByDefault>
+  <mojos>
+    <mojo>
+      <goal>echo</goal>
+      <description>Echos an object string to the output screen.</description>
+      <requiresDirectInvocation>false</requiresDirectInvocation>
+      <requiresProject>false</requiresProject>
+      <requiresReports>false</requiresReports>
+      <aggregator>false</aggregator>
+      <requiresOnline>false</requiresOnline>
+      <inheritedByDefault>true</inheritedByDefault>
+      <implementation>org.sonatype.mavenbook.plugins.EchoMojo</implementation>
+      <language>java</language>
+      <instantiationStrategy>per-lookup</instantiationStrategy>
+      <executionStrategy>once-per-session</executionStrategy>
+      <parameters>
+        <parameter>
+          <name>message</name>
+          <type>java.lang.Object</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>Any Object to print out.</description>
+        </parameter>
+      </parameters>
+      <configuration>
+        <message implementation="java.lang.Object" default-value="Hello Maven World...">${echo.message}</message>
+      </configuration>
+    </mojo>
+  </mojos>
+  <dependencies/>
+</plugin>

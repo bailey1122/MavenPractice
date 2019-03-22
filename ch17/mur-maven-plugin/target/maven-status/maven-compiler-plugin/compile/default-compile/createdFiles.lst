@@ -1,0 +1,4 @@
+org\sonatype\mavenbook\plugins\Txt.class
+org\sonatype\mavenbook\plugins\ZipForkMojo.class
+org\sonatype\mavenbook\plugins\App.class
+org\sonatype\mavenbook\plugins\ZipMojo.class

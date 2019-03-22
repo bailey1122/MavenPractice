@@ -1,0 +1,9 @@
+1. mvn blah:echo                    -  for "first-maven-plugin" (BUILD SUCCESS);
+2. mvn blah:echo@first-execution    -  for "first-maven-plugin" (BUILD SUCCESS);
+3. mvn blah:echo@second-execution   -  for "first-maven-plugin" (BUILD SUCCESS);
+
+4. mvn ah:txt                       -  for "mur-maven-plugin" (BUILD SUCCESS);
+5. mvn ah:zip                       -  for "mur-maven-plugin" (A required class was missing);
+6. mvn ah:zip-fork                  -  for "mur-maven-plugin" (A required class was missing);
+
+7. mvn ar:zip                       -  for "zip-maven-pugin" (Could not zip);

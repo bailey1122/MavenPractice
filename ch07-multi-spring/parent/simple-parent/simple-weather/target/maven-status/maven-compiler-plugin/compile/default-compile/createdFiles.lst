@@ -1,0 +1,3 @@
+org\sonatype\mavenbook\weather\YahooParser.class
+org\sonatype\mavenbook\weather\WeatherService.class
+org\sonatype\mavenbook\weather\YahooRetriever.class

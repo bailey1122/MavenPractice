@@ -1,0 +1,5 @@
+org\sonatype\mavenbook\weather\model\Location.class
+org\sonatype\mavenbook\weather\model\Wind.class
+org\sonatype\mavenbook\weather\model\Condition.class
+org\sonatype\mavenbook\weather\model\Atmosphere.class
+org\sonatype\mavenbook\weather\model\Weather.class

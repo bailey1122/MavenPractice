@@ -1,0 +1,60 @@
+<project name="Template project">
+
+ <bannerLeft>
+ <name>Left Banner</name>
+ <src>images/leftLogo.png</src>
+ <href>https://www.google.com/</href>
+ </bannerLeft>
+
+
+<bannerRight>
+ <name>Right Banner</name>
+ <src>images/rightLogo.png</src>
+ <href>http://www.yahoo.com</href>
+ </bannerRight>
+
+
+ <body>
+<menu name="Template project">
+ <item name="Introduction" href="index.html"/>
+ <item name="Products" href="products.html"/>
+
+ <item name="Installation" href="installation.html"/>
+ <item name="Configuration" href="configuration.html"/>
+ <item name="FAQ" href="faq.html"/>
+
+<item name="Developer Resources" collapse="true">
+ <item name="Overview" href="/developer/index.html"/>
+ <item name="System Architecture" href="/developer/architecture.html"/>
+ <item name="Embedder's Guide" href="/developer/embedding.html"/>
+ </item>
+
+ </menu>
+ <menu ref="reports"/>
+
+
+<links>
+   <item name="GitHub" href="https://github.com"/>
+   <item name="YouTube" href="https://www.youtube.com"/>
+</links>
+
+<breadcrumbs>
+ <item name="Apache" href="https://www.apache.org"/>
+ <item name="Maven" href="https://maven.apache.org"/>
+ </breadcrumbs>
+
+
+
+ </body>
+
+<version position="navigation-bottom"/>
+<publishDate position="right" format="dd-MM-yyyy"/>
+
+<skin>
+ <groupId>org.myexample</groupId>
+ <artifactId>sample-site-skin</artifactId>
+<version>1.0-SNAPSHOT</version>
+ </skin>
+
+
+</project>

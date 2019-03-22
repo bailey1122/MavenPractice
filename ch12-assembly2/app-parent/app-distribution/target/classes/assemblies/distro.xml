@@ -1,0 +1,26 @@
+<assembly>
+ <id>distribution</id>
+ <formats>
+ <format>zip</format>
+<format>tar.gz</format>
+ <format>tar.bz2</format>
+ </formats>
+
+<dependencySets>
+ <dependencySet>
+ <includes>
+ <include>*-web</include>
+ </includes>
+ <useTransitiveDependencies>false</useTransitiveDependencies>
+ <outputDirectory>/</outputDirectory>
+ <unpack>true</unpack>
+ </dependencySet>
+ <dependencySet>
+ <excludes>
+ <exclude>*-web</exclude>
+ </excludes>
+ <useProjectArtifact>false</useProjectArtifact>
+ <outputDirectory>/WEB-INF/lib</outputDirectory>
+ </dependencySet>
+ </dependencySets>
+</assembly>

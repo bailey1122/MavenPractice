@@ -1,0 +1,98 @@
+<plugin>
+  <description></description>
+  <groupId>org.sonatype.mavenbook.plugins</groupId>
+  <artifactId>mur-maven-plugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <goalPrefix>ah</goalPrefix>
+  <isolatedRealm>false</isolatedRealm>
+  <inheritedByDefault>true</inheritedByDefault>
+  <mojos>
+    <mojo>
+      <goal>txt</goal>
+      <description>Goal which touches a timestamp file.</description>
+      <requiresDirectInvocation>false</requiresDirectInvocation>
+      <requiresProject>true</requiresProject>
+      <requiresReports>false</requiresReports>
+      <aggregator>false</aggregator>
+      <requiresOnline>false</requiresOnline>
+      <inheritedByDefault>true</inheritedByDefault>
+      <phase>process-sources</phase>
+      <implementation>org.sonatype.mavenbook.plugins.Txt</implementation>
+      <language>java</language>
+      <instantiationStrategy>per-lookup</instantiationStrategy>
+      <executionStrategy>once-per-session</executionStrategy>
+      <parameters>
+        <parameter>
+          <name>outputDirectory</name>
+          <type>java.io.File</type>
+          <required>true</required>
+          <editable>true</editable>
+          <description>Location of the file.</description>
+        </parameter>
+      </parameters>
+      <configuration>
+        <outputDirectory implementation="java.io.File">${project.build.directory}</outputDirectory>
+      </configuration>
+    </mojo>
+    <mojo>
+      <goal>zip-fork</goal>
+      <description>Forks a zip lifecycle.</description>
+      <requiresDirectInvocation>false</requiresDirectInvocation>
+      <requiresProject>true</requiresProject>
+      <requiresReports>false</requiresReports>
+      <aggregator>false</aggregator>
+      <requiresOnline>false</requiresOnline>
+      <inheritedByDefault>true</inheritedByDefault>
+      <executePhase>package</executePhase>
+      <executeLifecycle>zipcycle</executeLifecycle>
+      <implementation>org.sonatype.mavenbook.plugins.ZipForkMojo</implementation>
+      <language>java</language>
+      <instantiationStrategy>per-lookup</instantiationStrategy>
+      <executionStrategy>once-per-session</executionStrategy>
+      <parameters/>
+    </mojo>
+    <mojo>
+      <goal>zip</goal>
+      <description>Zips up the output directory.</description>
+      <requiresDirectInvocation>false</requiresDirectInvocation>
+      <requiresProject>true</requiresProject>
+      <requiresReports>false</requiresReports>
+      <aggregator>false</aggregator>
+      <requiresOnline>false</requiresOnline>
+      <inheritedByDefault>true</inheritedByDefault>
+      <phase>package</phase>
+      <implementation>org.sonatype.mavenbook.plugins.ZipMojo</implementation>
+      <language>java</language>
+      <instantiationStrategy>per-lookup</instantiationStrategy>
+      <executionStrategy>once-per-session</executionStrategy>
+      <parameters>
+        <parameter>
+          <name>baseDirectory</name>
+          <type>java.io.File</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>Base directory of the project.</description>
+        </parameter>
+        <parameter>
+          <name>buildDirectory</name>
+          <type>java.io.File</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>Directory containing the build files.</description>
+        </parameter>
+      </parameters>
+      <configuration>
+        <baseDirectory implementation="java.io.File">${basedir}</baseDirectory>
+        <buildDirectory implementation="java.io.File">${project.build.directory}</buildDirectory>
+      </configuration>
+      <requirements>
+        <requirement>
+          <role>org.codehaus.plexus.archiver.Archiver</role>
+          <role-hint>zip</role-hint>
+          <field-name>zipArchiver</field-name>
+        </requirement>
+      </requirements>
+    </mojo>
+  </mojos>
+  <dependencies/>
+</plugin>
