@@ -1,1 +1,1 @@
-The main topics of MAVEN.
+The main topics of Maven.
